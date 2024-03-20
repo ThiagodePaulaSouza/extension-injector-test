@@ -1,12 +1,16 @@
 {
-    "description": "Demonstrating webRequests",
-    "manifest_version": 2,
-    "name": "inject roll20",
-    "version": "1.0",
-  
-    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
-  
-    "background": {
-      "scripts": ["background.js"]
+  "description": "Demonstrating webRequests",
+  "manifest_version": 2,
+  "name": "inject roll20",
+  "version": "1.0",
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["https://roll20.net/*"],
+      "js": ["app.js"]
     }
+  ],
+  "background": {
+    "scripts": ["background.js"]
   }
+}
